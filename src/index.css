@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+	font-size: 0.875rem;
+}
+td {
+	text-transform: capitalize;
+	color: rgba(255, 255, 255, 0.07);
+}
+thead td {
+	color: #ffffff;
+}
+
+/* Component styles */
+.btn {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	font-size: 0.875rem;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	border-radius: 0.375rem;
+}
+.input {
+	background-color: transparent;
+	padding: 0.5rem;
+	border: 1px solid #4b5563;
+	background-color: #4a5568;
+	color: #ffffff;
+	border-radius: 0.375rem;
+	outline: none;
+}
+.input::placeholder {
+	color: #ffffff;
+}
+.input:focus {
+	border-color: #a0aec0;
+}
+.container {
+	max-width: 1000px;
+}
+
+/* Utility styles */
+.btn-red {
+	background-color: #911c1c;
+}
+.btn-red:hover {
+	background-color: #9b2c2c;
+}
+
+/*
+@layer base {
+    body {
+        @apply text-sm;
+    }
+    td {
+        @apply capitalize text-white/07;
+    }
+    thead td {
+        @apply text-white;
+    }
+}
+@layer components {
+    .btn {
+        @apply flex gap-2 items-center text-sm text-white py-2 px-4 rounded-md;
+    }
+    .input {
+        @apply bg-transparent p-2 border-slate-800 bg-slate-700 placeholder: text-white rounded-md outline-none focus: border-slate-300;
+    }
+    .container {
+        @apply max-w-[1000px];
+    }
+}
+@layer utilities {
+    .btn-red {
+        @apply bg-rose-900 hover:bg-rose-800;
+    }
+    .btn-green {
+        @apply bg-green-600 hover:bg-green-800;
+    }
+}
+*/
