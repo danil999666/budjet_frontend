@@ -1,18 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { ProtectedRoute } from '../components/ProtectedRoute'
-import Auth from '../pages/Auth'
-import Categories, {
-	categoriesAction,
-	categoryLoader,
-} from '../pages/Categories'
-import ErrorPage from '../pages/ErrorPage'
-import Home from '../pages/Home'
-import Layout from '../pages/Layout'
-import TransactionInfo from '../pages/TransactionInfo'
-import Transactions, {
-	transactinAction,
-	transactinLoader,
-} from '../pages/Transactions'
+import { ProtectedRoute } from '../components/ProtectedRoute/ProtectedRoute.tsx'
+import Auth from '../pages/Auth/Auth.tsx'
+import Categories from '../pages/Categories/Categories.tsx'
+import CategoryInfo from '../pages/CategoryInfo/CategoryInfo.tsx'
+import ErrorPage from '../pages/ErrorPage/ErrorPage.tsx'
+import Home from '../pages/Home/Home.tsx'
+import Layout from '../pages/Layout/Layout.tsx'
+import TransactionInfo from '../pages/TransactionInfo/TransactionInfo.tsx'
+import Transactions from '../pages/Transactions/Transactions.tsx'
 
 export const router = createBrowserRouter([
 	{
@@ -26,8 +21,6 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: 'transactions',
-				action: transactinAction,
-				loader: transactinLoader,
 				element: (
 					<ProtectedRoute>
 						<Transactions />
@@ -35,19 +28,20 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
-				path: 'transactions/:id',
-				loader: transactinLoader,
+				path: 'transactions/transaction/:id',
 				element: <TransactionInfo />,
 			},
 			{
 				path: 'categories',
-				action: categoriesAction,
-				loader: categoryLoader,
 				element: (
 					<ProtectedRoute>
 						<Categories />
 					</ProtectedRoute>
 				),
+			},
+			{
+				path: 'categories/category/:id',
+				element: <CategoryInfo />,
 			},
 			{
 				path: 'auth',

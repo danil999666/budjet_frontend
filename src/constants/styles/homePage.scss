@@ -1,0 +1,163 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+	font-weight: 700;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: 'Roboto', sans-serif;
+}
+
+section {
+	position: relative;
+	width: 100%;
+	padding: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+
+	&.hero-section {
+		min-height: 100vh;
+	}
+
+	&.with-gradient::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 20%;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+		z-index: 1000;
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		pointer-events: none;
+
+		&#moon {
+			mix-blend-mode: screen;
+		}
+
+		&#mountains_front {
+			z-index: 10;
+		}
+	}
+
+	#text {
+		position: absolute;
+		right: -350px;
+		color: #fff;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		white-space: nowrap;
+		font-size: 6vw;
+		z-index: 9;
+	}
+
+	#btn {
+		margin-top: 10px;
+		text-decoration: none;
+		display: inline-block;
+		padding: 8px 30px;
+		border-radius: 40px;
+		background: #fff;
+		color: #2b1055;
+		font-size: 1.5em;
+		z-index: 9;
+		transform: translateY(100px);
+	}
+}
+
+.sec {
+	position: relative;
+	padding: 50px;
+	background-color: rgb(30, 41, 59);
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	max-width: 800px;
+	margin: 0 auto;
+
+	h2 {
+		font-size: 2.5em;
+		margin-bottom: 20px;
+		color: #e0e0e0;
+	}
+
+	p {
+		font-size: 1.2em;
+		margin-bottom: 10px;
+		color: #e0e0e0;
+		line-height: 1.6;
+	}
+}
+
+.swiper-container {
+	position: relative;
+	padding-bottom: 20px;
+	max-width: 800px;
+	margin: 0 auto;
+
+	&.swiper-centered {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
+	.swiper {
+		height: 100%;
+		position: relative;
+
+		.swiper-slide {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.swiper-pagination {
+			position: absolute;
+			bottom: -1px;
+			z-index: 10;
+		}
+	}
+}
+
+.about-us,
+.testimonials,
+.contact-info {
+	padding: 50px;
+	background: rgb(30, 41, 59);
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	margin: 20px auto;
+	max-width: 800px;
+	text-align: center;
+
+	h2 {
+		font-size: 2.5em;
+		margin-bottom: 20px;
+	}
+
+	p {
+		font-size: 1.2em;
+	}
+}
+
+.about-us-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+
+	p {
+		flex: 1;
+	}
+}

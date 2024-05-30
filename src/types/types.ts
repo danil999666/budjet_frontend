@@ -28,6 +28,7 @@ export interface ITransaction {
 	updatedAt: string
 	title: string
 	type: string
+	description: string
 	id: number
 	category: ICategory
 }
@@ -35,6 +36,7 @@ export interface ITransaction {
 export interface ICategory {
 	title: string
 	id: number
+	description: string
 	createdAt: string
 	updatedAt: string
 	transactions?: []
@@ -45,5 +47,40 @@ export interface IResponseTransactionLoader {
 	transactions: ITransaction[]
 	totalIncome: number
 	totalExpense: number
-	transaction: ITransaction
+	transaction: ITransaction | null
+}
+
+export type SortOrder = 'asc' | 'desc'
+export type SortField = keyof ITransaction
+export type FilterMode = 'all' | 'income' | 'expense'
+
+export interface ITransactionTableProps {
+	limit: number
+}
+
+export interface ITransactionTableHeaderProps {
+	sortField: SortField
+	sortOrder: SortOrder
+	filterMode: FilterMode
+	selectedCategory: string
+	categories: string[]
+	onSort: (field: SortField) => void
+	onFilterToggle: () => void
+	onCategoryChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
+}
+
+export interface ITransactionTableBodyProps {
+	data: ITransaction[]
+	onDelete: (transactionId: number) => void
+	onNavigate: (transactionId: number) => void
+}
+
+export interface IPaginationProps {
+	totalPages: number
+	currentPage: number
+	onPageChange: (selectedItem: { selected: number }) => void
+}
+
+export interface INotificationProps {
+	message: string
 }
